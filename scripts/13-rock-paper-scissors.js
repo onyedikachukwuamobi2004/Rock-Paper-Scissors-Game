@@ -199,8 +199,8 @@ document.querySelector('.js-result')
 
 document.querySelector('.js-moves')
 .innerHTML = `You 
-<img src="JavaScript Icons/${playerMove}-emoji.png" class="rock-paper-scissors-icon">
-<img src="JavaScript Icons/${computerMove}-emoji.png" class="rock-paper-scissors-icon">
+<img src="Rock paper scissors icons/${playerMove}-emoji.png" class="rock-paper-scissors-icon">
+<img src="Rock paper scissors icons/${computerMove}-emoji.png" class="rock-paper-scissors-icon">
 Computer`;
 
 
