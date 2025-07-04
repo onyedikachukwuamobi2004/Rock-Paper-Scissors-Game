@@ -94,16 +94,19 @@ document.body.addEventListener('keydown', (event) => {
 
 document.querySelector('.js-rock-button')
 .addEventListener('click', () => {
+  speak('rock')
   playGame('rock');
 });
 
 document.querySelector('.js-paper-button')
 .addEventListener('click', () => {
+  speak('paper')
   playGame('paper');
 });
 
 document.querySelector('.js-scissors-button')
 .addEventListener('click', () => {
+  speak('scissors')
   playGame('scissors');
 });
 
@@ -155,28 +158,37 @@ let result = ''
 
 if(playerMove === 'scissors') {
     if (computerMove === 'rock') {
+      speak('You lose')
     result = 'You lose.';
   } else if (computerMove === 'paper') {
+    speak('You win')
     result = 'You win.';
   } else if (computerMove === 'scissors') {
+    speak('Tie')
     result = 'Tie.';
   }
 
 } else if(playerMove === 'paper') {
     if (computerMove === 'rock') {
+      speak('You win')
     result = 'You win.';
   } else if (computerMove === 'paper') {
+    speak('Tie')
     result = 'Tie.';
   } else if (computerMove === 'scissors') {
+    speak('You lose')
     result = 'You lose.'
   }
 
 } else if(playerMove === 'rock') {
   if (computerMove === 'rock') {
+    speak('tie')
     result = 'Tie.';
   } else if (computerMove === 'paper') {
+    speak('You lose')
       result = 'You lose.';
   } else if (computerMove === 'scissors') {
+    speak('You win')
       result = 'You win.';
   }
 }
@@ -202,6 +214,23 @@ document.querySelector('.js-moves')
 <img src="Rock paper scissors icons/${playerMove}-emoji.png" class="rock-paper-scissors-icon">
 <img src="Rock paper scissors icons/${computerMove}-emoji.png" class="rock-paper-scissors-icon">
 Computer`;
-
-
 }
+
+const music = document.getElementById('js-music')
+
+function toggleMusic() {
+  music.volume = 0.4;
+  if (music.paused) {
+    music.play();
+    alert("music is playing")
+  } else {
+    music.pause();
+    alert("music off")
+  } 
+}
+
+function speak(text) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  speechSynthesis.speak(utterance);
+}
+
